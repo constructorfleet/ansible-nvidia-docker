@@ -1,8 +1,7 @@
 ---
 
 - name: Setup package repository
-  import_tasks:
-    name: "setup-{{ ansible_os_family }}.yml"
+  import_tasks: "setup-{{ ansible_os_family }}.yml"
 
 - name: Install apt packages
   package:
