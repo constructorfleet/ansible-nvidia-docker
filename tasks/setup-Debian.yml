@@ -8,6 +8,7 @@
 - name: Add NVidia docker repositories
   apt_repository:
     repo: "deb {{ nvidia_github_url }}/{{ item }}/{{ ansible_distribution | lower }}{{ ansible_distribution_version }}/$(ARCH) /"
+    filename: nvidia-docker
     state: present
   loop:
     - libnvidia-container
