@@ -1,0 +1,4 @@
+---
+
+nvidia_gpg_key_url: https://nvidia.github.io/nvidia-docker/gpgkey
+nvidia_github_url: https://nvidia.github.io/
