@@ -1,0 +1,10 @@
+---
+- name: Install NVidia Container Toolkit
+  hosts: machine-learning
+  become: True
+  remote_user: root
+  tasks:
+    - import_role:
+        name: common
+      tags:
+        - setup

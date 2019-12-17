@@ -1,0 +1,15 @@
+---
+
+- name: Get
+  command: . /etc/os-release;echo $ID$VERSION_ID
+  register: os-release
+
+- name: Install apt packages
+  package:
+    name: nvidia-container-toolkit
+    state: present
+
+- name: Restart docker service
+  systemd:
+    state: started
+    name: docker
