@@ -6,4 +6,4 @@
     state: present
 
 - name: Add apt source
-  command: "curl -s -L https://nvidia.github.io/nvidia-docker/{{ os-release.stdout }}/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list"
+  command: "curl -s -L https://nvidia.github.io/nvidia-docker/{{ ansible_distribution_version }}/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list"

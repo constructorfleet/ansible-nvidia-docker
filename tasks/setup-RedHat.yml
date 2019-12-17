@@ -1,4 +1,4 @@
 ---
 
 - name: Add apt source
-  command: "curl -s -L https://nvidia.github.io/nvidia-docker/{{ os-release.stdout }}/nvidia-docker.repo | sudo tee /etc/yum.repos.d/nvidia-docker.repo"
+  command: "curl -s -L https://nvidia.github.io/nvidia-docker/{{ ansible_distribution_version }}/nvidia-docker.repo | sudo tee /etc/yum.repos.d/nvidia-docker.repo"
