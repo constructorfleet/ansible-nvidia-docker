@@ -32,11 +32,17 @@
   reboot:
     reboot_timeout: 3600
 
+- stat:
+    path: /lib/modules/*/kernel/drivers/video/nvidia-drm.ko
+  register: nvidia_mod
+
 - name: Retrieve driver
   get_url:
     url: http://us.download.nvidia.com/tesla/440.33.01/NVIDIA-Linux-x86_64-440.33.01.run
     dest: /tmp/nvidia_driver.run
     mode: 777
+  when: not nvidia_mod.stat.exists
 
 - name: Install driver
-  command: /bin/bash /tmp/nvidia_driver.run
+  command: /bin/bash /tmp/nvidia_driver.run -s
+  when: not nvidia_mod.stat.exists
