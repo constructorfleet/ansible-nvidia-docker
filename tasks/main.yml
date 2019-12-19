@@ -20,6 +20,18 @@
     state: restarted
     name: docker
 
+- name: Blacklist mod
+  file:
+    src: nvidia-installer-disable-nouveau.conf
+    dest: /etc/modprobe.d/nvidia-installer-disable-nouveau.conf
+    mode: '0644'
+    owner: root
+    group: root
+
+- name: Reboot for mod blacklist to take effect
+  reboot:
+    reboot_timeout: 3600
+
 - name: Retrieve driver
   get_url:
     url: http://us.download.nvidia.com/tesla/440.33.01/NVIDIA-Linux-x86_64-440.33.01.run
