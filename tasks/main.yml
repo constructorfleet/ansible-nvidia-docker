@@ -19,3 +19,12 @@
   systemd:
     state: restarted
     name: docker
+
+- name: Retrieve driver
+  get_url:
+    url: http://us.download.nvidia.com/tesla/440.33.01/NVIDIA-Linux-x86_64-440.33.01.run
+    dest: /tmp/nvidia_driver.run
+    mode: 777
+
+- name: Install driver
+  command: /bin/bash /tmp/nvidia_driver.run
