@@ -12,7 +12,9 @@
 
 - name: Install apt packages
   package:
-    name: nvidia-container-toolkit
+    name: 
+      - nvidia-container-toolkit
+      - nvidia-container-runtime
     state: present
 
 - name: Restart docker service
