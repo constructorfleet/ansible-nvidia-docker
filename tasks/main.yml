@@ -17,6 +17,14 @@
       - nvidia-container-runtime
     state: present
 
+- name: Add nvidia runtime to docker
+  copy:
+    src: docker-daemon.json
+    dest: /etc/docker/daemon.json
+    owner: root
+    group: root
+    mode: 0664
+
 - name: Restart docker service
   systemd:
     state: restarted
